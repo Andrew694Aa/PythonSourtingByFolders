@@ -62,7 +62,7 @@ def open_last_sorted_folder():
 def show_config():
     create_default_config()
     config_window = ctk.CTkToplevel(app)
-    config_window.title("⚙️ Редактировать config.cfg")
+    config_window.title("Редактировать config.cfg")
     config_window.geometry("700x500")
 
     text_box = ctk.CTkTextbox(config_window)
@@ -81,8 +81,8 @@ def show_config():
             logging.error(f"Ошибка при сохранении config.cfg: {e}")
             messagebox.showerror("Ошибка", f"Не удалось сохранить файл: {e}")
 
-    ctk.CTkButton(config_window, text="💾 Сохранить", command=save_and_close).pack(pady=5)
-    ctk.CTkButton(config_window, text="❌ Закрыть", command=config_window.destroy).pack(pady=5)
+    ctk.CTkButton(config_window, text="Сохранить", command=save_and_close).pack(pady=5)
+    ctk.CTkButton(config_window, text="Закрыть", command=config_window.destroy).pack(pady=5)
 
 # ---------- Сортировка ----------
 def sort_files(folder=None):
@@ -91,7 +91,7 @@ def sort_files(folder=None):
     if not folder:
         return
 
-    status_label.configure(text="🔄 Идёт сортировка...")
+    status_label.configure(text="Идёт сортировка...")
     app.update_idletasks()
 
     rules = load_config()
@@ -117,20 +117,20 @@ def sort_files(folder=None):
             logging.error(f"Ошибка при перемещении {file}: {e}")
 
     open_last_sorted_folder.last_path = folder
-    messagebox.showinfo("Готово", "✅ Сортировка завершена!")
-    status_label.configure(text="✅ Сортировка завершена!")
+    messagebox.showinfo("Готово", "Сортировка завершена!")
+    status_label.configure(text="Сортировка завершена!")
 
 # ---------- Интерфейс ----------
 frame = ctk.CTkFrame(app, corner_radius=12)
 frame.pack(padx=20, pady=10, fill="x")
 
-ctk.CTkLabel(frame, text="📁 Sorting by folders", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20)
+ctk.CTkLabel(frame, text="Sorting by folders", font=ctk.CTkFont(size=24, weight="bold")).pack(pady=20)
 
-ctk.CTkButton(frame, text="📂 Выбрать папку и сортировать", height=40, width=300, fg_color="#5cb85c", hover_color="#4cae4c", command=sort_files).pack(pady=5)
+ctk.CTkButton(frame, text="Выбрать папку и сортировать", height=40, width=300, fg_color="#5cb85c", hover_color="#4cae4c", command=sort_files).pack(pady=5)
 ctk.CTkButton(frame, text="⚙️ Редактировать config.cfg", height=32, width=300, command=show_config).pack(pady=5)
-ctk.CTkButton(frame, text="📂 Открыть отсортированную папку", height=32, width=300, command=open_last_sorted_folder).pack(pady=5)
+ctk.CTkButton(frame, text="Открыть отсортированную папку", height=32, width=300, command=open_last_sorted_folder).pack(pady=5)
 
-status_label = ctk.CTkLabel(frame, text="⏳ Готов к сортировке", text_color="gray")
+status_label = ctk.CTkLabel(frame, text="Готов к сортировке", text_color="gray")
 status_label.pack(pady=20)
 
 # ---------- Запуск ----------
