@@ -1,2 +1,2 @@
 # PythonSourtingByFolders
-BELGEN — SortingByFolders 📁 Automatic File Organizer
+BELGEN - SortingByFoldersAutomatic File Organizer
